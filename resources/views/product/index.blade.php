@@ -40,15 +40,15 @@
                                 <td>{{ $item->product_id }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->category }}</td>
-                                <td>{{ $item->price }}</td>
+                                <td>Rp.{{ number_format($item['price'],0,',','.') }}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>{{ $item['created_at'] }}</td>
                                 <td>
-                                    {{-- <a href="{{ route('product.destroy', $item->id) }}" class="btn btn-warning">Delete</a> --}}
                                     <form action="{{ Route('product.destroy', $item->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                         {{-- <a href="{{ route('blog.edit',$item->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a> --}}
+                                        <a href="{{ route('product.edit', $item->id) }}" class="btn btn-sm btn-info">Edit</a>
                                         <button class="btn btn-sm btn-danger" type="submit">Delete</i></button>
                                         </form> 
                                 </td>

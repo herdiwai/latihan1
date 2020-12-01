@@ -72,7 +72,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -84,7 +84,22 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $this->validate($request,[
+            'product_id' => 'required',
+            'name' => 'required',
+            'category' => 'required',
+            'price' => 'required|integer'
+        ]);
+        
+        $product->update([
+            'product_id' => $request->get('product_id'),
+            'name' => $request->get('name'),
+            'category' => $request->get('category'),
+            'price' => $request->get('price'),
+            'description' => $request->get('description')
+        ]);
+
+        return redirect()->route('product.index')->with('success', 'Product Berhasil diupdate!!');
     }
 
     /**
