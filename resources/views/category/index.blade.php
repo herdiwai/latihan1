@@ -6,7 +6,7 @@
         <div class="col-md">
     
             <div class="card-body">
-                <h2>Latihan Tes Laravel</h2>
+                <h2>Category</h2>
             </div>
             <div class="card-body">
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#category_create">Create Category</button>

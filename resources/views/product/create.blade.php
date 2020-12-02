@@ -13,9 +13,9 @@
                 <div class="card-body">
                     <div class="form-group">
                     <label>Product ID</label>
-                    <input type="text" name="product_id" class="form-control @error('product_id') is-invalid @enderror" value="{{ old('product_id') }}" required="">
+                    <input type="text" name="productid" class="form-control @error('productid') is-invalid @enderror" value="{{ old('productid') }}" required="">
 
-                        @error('product_id')
+                        @error('productid')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -37,10 +37,14 @@
 
                 {{-- <div class="card-body"> --}}
                     <div class="form-group">
-                    <label>Category</label>
-                    <input type="text" name="category" class="form-control @error('category') is-invalid @enderror" value="{{ old('category') }}" required="">
+                    <label>Category ID</label>
+                        <select name="category_id" class="form-control">
+                            @foreach($category as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
 
-                        @error('category')
+                        @error('category_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

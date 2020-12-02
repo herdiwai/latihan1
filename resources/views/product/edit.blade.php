@@ -15,9 +15,9 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Product_id</label>
-                        <input type="text" name="product_id" class="form-control @error('product_id') is-invalid @enderror" value="{{ $product->product_id }}" required="">
+                        <input type="text" name="productid" class="form-control @error('productid') is-invalid @enderror" value="{{ $product->productid }}" required="" disabled>
 
-                        @error('product_id')
+                        @error('productid')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -39,18 +39,35 @@
                 </div>
             </div>
 
-                <div class="card-body">
-                <div class="form-group">
-                    <label>Category</label>
-                    <input type="text" name="category" class="form-control @error('category') is-invalid @enderror" value="{{ $product->category }}" required="">
+            <div class="card-body">
+            <div class="form-group">
+                <label>Category ID</label>
+                    <select name="category_id" class="form-control">
+                        @foreach($category as $item)
+                            <option value="{{ $item->id }}" {{ $item->id == $item->id ? 'selected':'' }}>{{ $item->name }}</option>
+                        @endforeach
+                    </select>
 
-                        @error('category')
+                    @error('category_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+            </div>
+                </div>
+
+                {{-- <div class="card-body">
+                <div class="form-group">
+                    <label>Category ID</label>
+                    <input type="text" name="category_id" class="form-control @error('category_id') is-invalid @enderror" value="{{ $product->category_id }}" required="">
+
+                        @error('category_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                 </div>
-            </div>
+            </div> --}}
 
 
                 <div class="card-body">

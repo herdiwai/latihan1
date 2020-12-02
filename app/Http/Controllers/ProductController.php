@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $category = Category::all();
+        return view('product.create', compact('category'));
     }
 
     /**
@@ -37,16 +39,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'product_id'=>'required|string|max:50|unique:products'
+            'productid'=>'required|string|max:50|unique:products',
+            'name' => 'required',
+            'category_id' =>'required',
+            'price' =>'required',
+            'description' =>'required'
         ]);
-
-        // Product::insert([
-        //     'product_id' => $request->get('product_id'),
-        //     'name' => $request->get('name'),
-        //     'category' => $request->get('category'),
-        //     'price' => $request->get('price'),
-        //     'description' => $request->get('description')
-        // ]);
+        // var_dump($request->name);
+        // // Product::insert([
+        // //     'productid' => $request->get('productid'),
+        // //     'name' => $request->get('name'),
+        // //     'category' => $request->get('category'),
+        // //     'price' => $request->get('price'),
+        // //     'description' => $request->get('description')
+        // // ]);
         
         Product::create($request->except('_token'));
 
@@ -72,7 +78,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('product.edit', compact('product'));
+        $category = Category::all();
+        return view('product.edit', compact('product','category'));
     }
 
     /**
@@ -85,14 +92,14 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $this->validate($request,[
-            'product_id' => 'required',
+            'productid' => 'required',
             'name' => 'required',
             'category' => 'required',
             'price' => 'required|integer'
         ]);
         
         $product->update([
-            'product_id' => $request->get('product_id'),
+            'productid' => $request->get('productid'),
             'name' => $request->get('name'),
             'category' => $request->get('category'),
             'price' => $request->get('price'),

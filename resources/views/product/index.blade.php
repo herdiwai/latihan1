@@ -6,6 +6,9 @@
         <div class="card">
             <div class="col-md">
                 <div class="card-body">
+                    <h3>Product</h3>
+                </div>
+                <div class="card-body">
                     <a href="{{ route('product.create') }}" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Create Product</a>
                 </div>
                 {{-- Alert --}}
@@ -23,7 +26,7 @@
                             <th>No</th>
                             <th>Product ID</th>
                             <th>Name</th>
-                            <th>Category</th>
+                            <th>Category ID</th>
                             <th>Price</th>
                             <th>Description</th>
                             <th>Created At</th>
@@ -37,9 +40,9 @@
                         @foreach($product as $item)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $item->product_id }}</td>
+                                <td>{{ $item->productid }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->category }}</td>
+                                <td>{{ $item->category->name }}</td>
                                 <td>Rp.{{ number_format($item['price'],0,',','.') }}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>{{ $item['created_at'] }}</td>
