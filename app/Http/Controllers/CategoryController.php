@@ -41,8 +41,12 @@ class CategoryController extends Controller
             'category_id'=> 'required|unique:categories',
             'name' => 'required'
         ]);
-
-        Category::create($request->all());
+        if($request->all() != 0) {
+            Category::create($request->all());
+        } else {
+            echo "masukan data terlebih dahulu";
+        }   
+       
 
         return redirect()->route('category.index')->with('success', 'Category Berhasil dibuat !');
     }

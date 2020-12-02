@@ -74,9 +74,9 @@
 
                     <div class="form-group">
                         <label>Category Id</label>
-                        <input type="text" name="category_id" class="form-control @error('product_id') is-invalid @enderror" value="{{ old('product_id') }}" required>
+                        <input type="text" name="category_id" class="form-control @error('category_id') is-invalid @enderror" value="{{ old('category_id') }}">
     
-                        @error('product_id')
+                        @error('category_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -85,7 +85,7 @@
                     
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
     
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -99,7 +99,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                    <button type="submit" id="submit" class="btn btn-sm btn-primary">Save</button>
                 </div>
 
             </form>

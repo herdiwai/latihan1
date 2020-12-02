@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Product_id</label>
-                        <input type="text" name="productid" class="form-control @error('productid') is-invalid @enderror" value="{{ $product->productid }}" required="" disabled>
+                        <input type="text" name="productid" class="form-control @error('productid') is-invalid @enderror" value="{{ $product->productid }}">
 
                         @error('productid')
                             <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                 <label>Category ID</label>
                     <select name="category_id" class="form-control">
                         @foreach($category as $item)
-                            <option value="{{ $item->id }}" {{ $item->id == $item->id ? 'selected':'' }}>{{ $item->name }}</option>
+                            <option value="{{ $item->id }}" {{ $item->id == $product->category_id ? 'selected':'' }}>{{ $item->name }}</option>
                         @endforeach
                     </select>
 

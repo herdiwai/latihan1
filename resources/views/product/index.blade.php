@@ -13,7 +13,7 @@
                 </div>
                 {{-- Alert --}}
                     @if (session('success'))
-                    <div class="alert alert-light alert-has-icon">
+                    <div class="alert alert-info">
                         <div class="alert-body">
                             {{ session('success') }}
                         </div>
@@ -26,7 +26,7 @@
                             <th>No</th>
                             <th>Product ID</th>
                             <th>Name</th>
-                            <th>Category ID</th>
+                            <th>Category</th>
                             <th>Price</th>
                             <th>Description</th>
                             <th>Created At</th>
@@ -42,7 +42,7 @@
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $item->productid }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->category->name }}</td>
+                                <td>{{ $item->category->name}}</td>
                                 <td>Rp.{{ number_format($item['price'],0,',','.') }}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>{{ $item['created_at'] }}</td>

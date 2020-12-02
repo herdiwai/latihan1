@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="form-group">
                     <label>Product ID</label>
-                    <input type="text" name="productid" class="form-control @error('productid') is-invalid @enderror" value="{{ old('productid') }}" required="">
+                    <input type="text" name="productid" class="form-control @error('productid') is-invalid @enderror" value="{{ old('productid') }}">
 
                         @error('productid')
                             <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
                 {{-- <div class="card-body"> --}}
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required="">
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
 
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                 {{-- <div class="card-body"> --}}
                     <div class="form-group">
                     <label>Price</label>
-                    <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" required="">
+                    <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
 
                         @error('price')
                             <span class="invalid-feedback" role="alert">
@@ -65,7 +65,7 @@
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('description')}}" required autocomplete="description" autofocus></textarea>
+                    <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('description')}}" autocomplete="description" autofocus></textarea>
     
                     @error('description')
                         <span class="invalid-feedback" role="alert">

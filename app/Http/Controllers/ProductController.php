@@ -92,19 +92,22 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $this->validate($request,[
-            'productid' => 'required',
             'name' => 'required',
-            'category' => 'required',
-            'price' => 'required|integer'
+            'price' => 'required|integer',
+            'category_id' => 'required',
+            'description' => 'required'
+            
+            
         ]);
-        
-        $product->update([
-            'productid' => $request->get('productid'),
-            'name' => $request->get('name'),
-            'category' => $request->get('category'),
-            'price' => $request->get('price'),
-            'description' => $request->get('description')
-        ]);
+       
+        $product->update($request->all());
+        // // $product->update([
+        // //     'productid' => $request->get('productid'),
+        // //     'name' => $request->get('name'),
+        // //     'category' => $request->get('category'),
+        // //     'price' => $request->get('price'),
+        // //     'description' => $request->get('description')
+        // // ]);
 
         return redirect()->route('product.index')->with('success', 'Product Berhasil diupdate!!');
     }
